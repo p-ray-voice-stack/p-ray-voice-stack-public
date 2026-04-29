@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local V2 Demo</title>
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --panel: #fffaf3;
+        --ink: #1f1b17;
+        --accent: #1e6f5c;
+        --accent-soft: #d8ede5;
+        --border: #d4c6b4;
+        --muted: #64594c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, #fffdf7 0%, transparent 34%),
+          linear-gradient(160deg, #efe7d8 0%, var(--bg) 52%, #ebe2d3 100%);
+      }
+
+      main {
+        width: min(920px, calc(100% - 32px));
+        margin: 32px auto;
+        padding: 28px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: rgba(255, 250, 243, 0.94);
+        box-shadow: 0 18px 50px rgba(65, 49, 32, 0.12);
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .hero {
+        display: grid;
+        gap: 16px;
+      }
+
+      .eyebrow {
+        font-size: 0.82rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+      }
+
+      .hero p {
+        max-width: 62ch;
+        color: var(--muted);
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .card {
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--panel);
+      }
+
+      .card h2 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+
+      .launch-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, #175647 0%, var(--accent) 100%);
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.7;
+        cursor: wait;
+      }
+
+      .status {
+        color: var(--muted);
+      }
+
+      .turn {
+        white-space: pre-wrap;
+        min-height: 3.5em;
+        margin-top: 8px;
+        color: var(--ink);
+      }
+
+      .note {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: var(--accent-soft);
+        color: #184438;
+      }
+
+      audio {
+        width: 100%;
+        margin-top: 12px;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          width: min(100% - 20px, 920px);
+          margin: 16px auto;
+          padding: 20px;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">P-Ray Voice Stack</p>
+        <h1>Local V2 Demo</h1>
+        <p>
+          This screen is the first-stop pure-software demo. It shows the shape of a
+          local-v2 interaction without requiring a board, microphone pipeline, or
+          cloud deployment.
+        </p>
+      </section>
+
+      <section class="stack">
+        <article class="card">
+          <h2>Launch</h2>
+          <div class="launch-row">
+            <button id="start-demo" type="button">Run Local V2 Demo</button>
+            <p id="status" class="status">Ready. Click the button to simulate one turn.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>User Turn</h2>
+          <p id="user-turn" class="turn">Waiting for a simulated input.</p>
+        </article>
+
+        <article class="card">
+          <h2>Assistant Reply</h2>
+          <p id="assistant-turn" class="turn">Waiting for a simulated reply.</p>
+          <audio id="answer" controls preload="none"></audio>
+          <p id="audio-note" class="note">
+            Answer audio is intentionally stubbed in Task 3. This page focuses on the
+            first-run UI and flow only.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

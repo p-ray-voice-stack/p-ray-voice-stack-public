@@ -1,0 +1,6 @@
+dependencies:
+  idf: ">=5.5"
+  espressif/esp_vocat:
+    version: "*"
+  espressif/esp_audio_codec:
+    version: "~2.4.1"
