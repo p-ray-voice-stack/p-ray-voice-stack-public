@@ -1,42 +1,60 @@
+
+
+**LANGUAGE:** [English Version](./README.en.md)
+<br>
+
 # P-Ray Voice Stack
 
-一个面向学习和原型验证的 AI 语音设备入门栈。
+> **P-Ray Voice Stack:** `让硬件产品开口对话，让万物有灵。`<br>
+> 通过透明、可私有化的开源教程，使所有硬件产品（e.g. 玩具、雕像等）都能简单地享受到最前沿的AI语音交互能力。
 
-这个仓库的目标不是直接交付一整套量产系统，而是让开发者从零开始，沿着清晰路径理解“本地语音交互 -> 单板硬件 baseline -> v3 进阶链路”的演进方式。团队如果需要生产部署、定制板卡适配或长期交付支持，可以从 `commercial/` 进入商业协作路径。
+> **提供商业解决方案:** 云端24小时自动部署维护、嵌入式支持、专业知识库定制、声音复刻、角色IP定制。
 
-## 学习路径
+<br>
 
-1. 从 `examples/local-v2/` 开始：不用硬件，先理解一次语音交互的基本形状。
-2. 进入 `examples/hardware-v2/`：使用官方公开 baseline `ESP-VoCat v1.2`。
-3. 阅读 `examples/hardware-v3/` 和 `docs/v3-runtime-boundary.md`：理解 v3 public-preview 的边界。
-4. 如果你需要产品化交付、私有部署或板卡适配，查看 `commercial/README.md`。
 
-## 当前公开状态
+  
 
-- `local-v2`：静态浏览器 demo，用于第一步教学，不包含真实麦克风、STT、TTS 或流式音频。
-- `hardware-v2`：公开的 `ESP-VoCat v1.2` 单板 baseline，配置值保持空占位，不提交 Wi-Fi、设备 ID 或服务器地址。
-- `hardware-v3` / `v3`：公开进阶路径，包含 public-preview API contract 和一层克制的 in-process runtime 示例。
-- `commercial/`：面向 To-B 协作的公开入口，说明开源学习路径与商业交付边界。
+## 教程与阅读路径
 
-## 仓库结构
+**小白路径**：PCM音频串行 （10s-15s延迟：**极度简单化**）
+- 纯软件版：  **local-v2** （10分钟上手 - 浏览器本地运行）
+- 硬件版：    **hardware-v2**
 
-- `server/`：最小 FastAPI 服务。
-- `examples/`：local-v2、hardware-v2、hardware-v3 学习路径。
-- `hardware/`：官方公开硬件 baseline。
-- `docs/`：快速开始、v2/v3 对比、v3 runtime 边界、开源与商业边界。
-- `commercial/`：商业协作入口和需求收集问题。
-- `tests/`：公开仓库结构和核心 contract 的基础测试。
+<br>
 
-## 不包含什么
+**进阶路径**：PCM上行 + Opus流式下行 （3-5s延迟：**初步产品级**）
+-  硬件版：    **hardware-v3**
 
-这个公开仓库当前不包含：
+<br>
 
-- 生产部署方案
-- 真实实时音频 transport
-- 真实 event stream / replay
-- provider 调用
-- 持久化 session state
-- 多板卡公开支持
-- 客户项目私有配置或交付材料
 
-这些内容属于后续商业协作或更高阶公开阶段，不在当前 public-preview 范围内。
+**未来路径 (To-do)**
+- 版本-v4：**半双工快速切换（模拟全双工）** - 语音大模型
+- 版本-v5：**原生全双工** - 语音
+- 版本-v6：**多模态全双工** - 图像+语音+文字
+
+<br>
+
+## 组织信息
+
+- **创始公司：** **苏州工业园区祈光人工智能科技有限公司**
+- **英文名称：** **P-ray AI Ltd.**
+- **公司简介：** 祈光是一家 AI 原生的一人公司（OPC），专注于`AI 硬件、端云协同与具身智能的长期愿景`。<br>
+公司同时建立了外部技术顾问网络，来自`耶鲁大学 EECS PhD、多伦多大学 CS PhD、清华大学 EECS` 等学术背景，可在系统架构、AI 工程、实时语音系统与开源生态方向提供阶段性技术建议。
+
+
+
+<br>
+
+
+## 商务对接: 硬件厂商、玩具品牌方、集成商、开源社区合作
+
+
+- **项目联合创始人：** 妮妮 Fer 小姐姐
+- **个人简介：** 美本 Top 35（U.S. News 2024）统计学的大四学生，ENFP 快乐小狗。主职：数据分析、品牌创建与开源社区建设。
+- **商务合作邮箱：** `jenniferzhang52@gmail.com`
+
+<p align="center">
+  <img src="./ninifer_zhang.jpg" alt="ninifer_zhang" width="50%">
+</p>
